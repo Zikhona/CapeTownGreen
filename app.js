@@ -77,4 +77,5 @@ var createLocationClass = function(number) {
 	else if(number === 9){
 	return "slot-nine-of-nine";
 	}		
+
 };
