@@ -1,4 +1,4 @@
-// var body = document.querySelector("body");
+var body = document.querySelector("body");
 
 // var taxiLocationCounter = 1;
 
