@@ -4,13 +4,24 @@ var body = document.querySelector("body");
 
   body.onkeydown = function(e){
 
- 	  var right = keyCodeName(e.keyCode);
- 	   		var moveForward = function(){
- 	   			var createLocationClass(taxiLocationCounter);
- 	   			var currrentLocation;
- 	   			var newLocation;
- 	   		};
- displayMessage(number);
+ 	  //  		var moveForward = function(){
+ 	  //  			var createLocationClass(taxiLocationCounter);
+ 	  //  			var currrentLocation;
+ 	  //  			var newLocation;
+ 	   		// };
+
+
+ displayMessage(taxiLocationCounter);
+
+if(keyCodeName(e.keyCode) === "right"){
+ 	  taxiLocationCounter = taxiLocationCounter + 1;
+
+}
+
+ 	   var className = createLocationClass(taxiLocationCounter);	
+	
+ 	displayMessage(className);
+ 	 
 };
 var keyCodeName = function (keyCode) {
 	if(keyCode === 38) {
@@ -62,3 +73,15 @@ var createLocationClass = function (number) {
 		return "";
 	}
 };
+//  var taxiLocationCounter = function(count){
+ 	
+//  	if(keyCode === 37){
+//  		return "left"
+//  	}
+//  	if(keyCode === 38) {
+// 		return "up";
+// 	}
+// 	if(keyCode === 39) {
+// 		return "right";
+// 	}
+// };
