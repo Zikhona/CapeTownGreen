@@ -73,15 +73,3 @@ var createLocationClass = function (number) {
 		return "";
 	}
 };
-//  var taxiLocationCounter = function(count){
- 	
-//  	if(keyCode === 37){
-//  		return "left"
-//  	}
-//  	if(keyCode === 38) {
-// 		return "up";
-// 	}
-// 	if(keyCode === 39) {
-// 		return "right";
-// 	}
-// };
