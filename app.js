@@ -4,13 +4,13 @@ var body = document.querySelector("body");
 
   body.onkeydown = function(e){
 
-  	
+ 	   	
 
 
  displayMessage(taxiLocationCounter);
 
 if(keyCodeName(e.keyCode) === "right"){
- 	  // taxiLocationCounter = taxiLocationCounter + 1;
+ 	   taxiLocationCounter = taxiLocationCounter + 1;
 
 }
 
@@ -72,6 +72,7 @@ var createLocationClass = function (number) {
 
 	var moveForward = function(){
  	 		var currrentLocation = createLocationClass(taxiLocationCounter);
- 	  //  			var ;
- 	  //  			var newLocation;
+ 			taxiLocationCounter+1;
+  			var newLocation = createLocationClass(taxiLocationCounter);
+  			moveTaxi(currrentLocation , newLocation);
  };
