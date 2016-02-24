@@ -4,11 +4,7 @@ var body = document.querySelector("body");
 
   body.onkeydown = function(e){
 
- 	  //  		var moveForward = function(){
- 	  //  			var createLocationClass(taxiLocationCounter);
- 	  //  			var currrentLocation;
- 	  //  			var newLocation;
- 	   		// };
+  	
 
 
  displayMessage(taxiLocationCounter);
@@ -73,3 +69,9 @@ var createLocationClass = function (number) {
 		return "";
 	}
 };
+
+	var moveForward = function(){
+ 	 		var currrentLocation = createLocationClass(taxiLocationCounter);
+ 	  //  			var ;
+ 	  //  			var newLocation;
+ };
