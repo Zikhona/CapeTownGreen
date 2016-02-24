@@ -14,7 +14,7 @@ var body = document.querySelector("body");
  displayMessage(taxiLocationCounter);
 
 if(keyCodeName(e.keyCode) === "right"){
- 	  taxiLocationCounter = taxiLocationCounter + 1;
+ 	  // taxiLocationCounter = taxiLocationCounter + 1;
 
 }
 
