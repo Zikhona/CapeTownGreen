@@ -3,20 +3,22 @@ var body = document.querySelector("body");
 var taxiLocationCounter = 1;
 
  body.onkeydown = function(e){
-
+// make sure that the counter variable never get’s bigger than 9 or less than 1;
  	   	
 var keyName = keyCodeName(e.keyCode);
 
  displayMessage(taxiLocationCounter);
 
 if(keyName === "right"){
- 	   // taxiLocationCounter = taxiLocationCounter + 1;
+	if(taxiLocationCounter < 9){
  	   moveForward();
+ 	}
 }
 
 else if(keyName === "left"){
- 	   // taxiLocationCounter = taxiLocationCounter + 1;
+	if(taxiLocationCounter > 1){
  	   moveBack();
+	 }
 }
 
 var className = createLocationClass(taxiLocationCounter);	
@@ -87,5 +89,5 @@ var createLocationClass = function (number) {
  	 		var currrentLocation = createLocationClass(taxiLocationCounter);
  			 taxiLocationCounter --;
   			var newLocation = createLocationClass(taxiLocationCounter);
-  			moveTaxi(currrentLocation , newLocation);
+  			 moveTaxi(currrentLocation , newLocation);
  };
