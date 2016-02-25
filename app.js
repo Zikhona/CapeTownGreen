@@ -1,24 +1,30 @@
 var body = document.querySelector("body");
 
-	var taxiLocationCounter = 1;
+var taxiLocationCounter = 1;
 
-  body.onkeydown = function(e){
+ body.onkeydown = function(e){
 
  	   	
-
+var keyName = keyCodeName(e.keyCode);
 
  displayMessage(taxiLocationCounter);
 
-if(keyCodeName(e.keyCode) === "right"){
- 	   taxiLocationCounter = taxiLocationCounter + 1;
-
+if(keyName === "right"){
+ 	   // taxiLocationCounter = taxiLocationCounter + 1;
+ 	   moveForward();
 }
 
- 	   var className = createLocationClass(taxiLocationCounter);	
-	
+else if(keyName === "left"){
+ 	   // taxiLocationCounter = taxiLocationCounter + 1;
+ 	   moveBack();
+}
+
+var className = createLocationClass(taxiLocationCounter);	
  	displayMessage(className);
- 	 
+
 };
+
+
 var keyCodeName = function (keyCode) {
 	if(keyCode === 38) {
 		return "up";
@@ -72,7 +78,14 @@ var createLocationClass = function (number) {
 
 	var moveForward = function(){
  	 		var currrentLocation = createLocationClass(taxiLocationCounter);
- 			taxiLocationCounter+1;
+ 			 taxiLocationCounter ++;
+  			var newLocation = createLocationClass(taxiLocationCounter);
+  			moveTaxi(currrentLocation , newLocation);
+ };
+
+ var moveBack = function(){
+ 	 		var currrentLocation = createLocationClass(taxiLocationCounter);
+ 			 taxiLocationCounter --;
   			var newLocation = createLocationClass(taxiLocationCounter);
   			moveTaxi(currrentLocation , newLocation);
  };
