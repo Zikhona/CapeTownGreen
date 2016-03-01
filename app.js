@@ -11,21 +11,30 @@ var taxiLocationCounter = 1;
 
 var trafficLight = new TrafficLight(taxiLocationCounter);
 
-
-
- if(keyName === "right"){
- 	//if(trafficLight.color() === "green"){
+	if(keyName === "right"){
 		if(taxiLocationCounter < 9){
   	   		moveForward();
   		}
-  	//}
  }
 
-  if(keyName === "left"){
-	if(taxiLocationCounter > 1){
+  	if(keyName === "left"){
+		if(taxiLocationCounter > 1){
  	   moveBack();
 	 }
 }
+
+	if(keyName === "down"){
+  	   		trafficLight.makeGreen();
+  		}
+ 
+
+if(keyName === "up"){
+ 		trafficLight.makeRed();
+
+
+ }
+
+
 
  var className = createLocationClass(taxiLocationCounter);	
   	displayMessage(className);
@@ -131,11 +140,12 @@ var createTrafficLightClass = function(counter){
 	}
 };
 
-var TrafficLight = function(x){
-	var className = createTrafficLightClass(x);
+var TrafficLight = function(taxiLocationCounter){
+	var className = createTrafficLightClass(taxiLocationCounter);
+
 
 	var trafficLightElement = document.querySelector(className);
-}
+
 this.makeGreen = function(){
 	trafficLightElement.classList.remove("lights-stop");
 	trafficLightElement.classList.remove("lights-slowdown");
@@ -157,12 +167,14 @@ this.makeRed = function(){
 this.color = function(){
 	if(trafficLightElement.classList.contains("lights-stop")){
     return 'red';
-}
+	}
 	if(trafficLightElement.classList.contains("lights-slowdown")){
     return 'orange';
-}
+	}
 
 	if(trafficLightElement.classList.contains("lights-go")){
     return 'green';
+	}
+
 }
-} 
+}; 
