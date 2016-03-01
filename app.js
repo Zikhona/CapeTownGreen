@@ -5,24 +5,30 @@ var taxiLocationCounter = 1;
  body.onkeydown = function(e){
 // make sure that the counter variable never get’s bigger than 9 or less than 1;
  	   	
-var keyName = keyCodeName(e.keyCode);
+ var keyName = keyCodeName(e.keyCode);
 
- displayMessage(taxiLocationCounter);
+//  displayMessage(taxiLocationCounter);
 
-if(keyName === "right"){
-	if(taxiLocationCounter < 9){
- 	   moveForward();
- 	}
-}
+var trafficLight = new TrafficLight(taxiLocationCounter);
 
-else if(keyName === "left"){
+
+
+ if(keyName === "right"){
+ 	//if(trafficLight.color() === "green"){
+		if(taxiLocationCounter < 9){
+  	   		moveForward();
+  		}
+  	//}
+ }
+
+  if(keyName === "left"){
 	if(taxiLocationCounter > 1){
  	   moveBack();
 	 }
 }
 
-var className = createLocationClass(taxiLocationCounter);	
- 	displayMessage(className);
+ var className = createLocationClass(taxiLocationCounter);	
+  	displayMessage(className);
 
 };
 
@@ -91,3 +97,72 @@ var createLocationClass = function (number) {
   			var newLocation = createLocationClass(taxiLocationCounter);
   			 moveTaxi(currrentLocation , newLocation);
  };
+
+var createTrafficLightClass = function(counter){
+	if(counter === 1) {
+		return ".one-of-nine";
+	}
+	if(counter === 2) {
+		return ".two-of-nine";
+	}
+	if(counter === 3) {
+		return ".three-of-nine";
+	}
+	if(counter === 4) {
+		return ".four-of-nine";
+	}
+	if(counter === 5) {
+		return ".five-of-nine";
+	}
+	if(counter === 6) {
+		return ".six-of-nine";
+	}
+	if(counter === 7) {
+		return ".seven-of-nine";
+	}
+	if(counter === 8) {
+		return ".eight-of-nine";
+	}
+	if(counter === 9) {
+		return ".nine-of-nine";
+	}
+	else {
+		return "";
+	}
+};
+
+var TrafficLight = function(x){
+	var className = createTrafficLightClass(x);
+
+	var trafficLightElement = document.querySelector(className);
+}
+this.makeGreen = function(){
+	trafficLightElement.classList.remove("lights-stop");
+	trafficLightElement.classList.remove("lights-slowdown");
+	trafficLightElement.classList.add("lights-go");
+}
+
+this.makeOrange = function(){
+	trafficLightElement.classList.remove("lights-stop");
+	trafficLightElement.classList.remove("lights-go");
+	trafficLightElement.classList.add("lights-slowdown");
+}
+
+this.makeRed = function(){
+	trafficLightElement.classList.remove("lights-go");
+	trafficLightElement.classList.remove("lights-slowdown");
+	trafficLightElement.classList.add("lights-stop");
+}
+
+this.color = function(){
+	if(trafficLightElement.classList.contains("lights-stop")){
+    return 'red';
+}
+	if(trafficLightElement.classList.contains("lights-slowdown")){
+    return 'orange';
+}
+
+	if(trafficLightElement.classList.contains("lights-go")){
+    return 'green';
+}
+} 
