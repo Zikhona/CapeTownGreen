@@ -13,7 +13,7 @@ var trafficLight = new TrafficLight(taxiLocationCounter);
 
 	if(keyName === "right"){
 		if(trafficLight.color() === "green" &&
-taxiLocationCounter < 9){
+			taxiLocationCounter < 9){
   	   		moveForward();
   		}
  }
